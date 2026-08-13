@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Purple Splash Infonet Pvt. Ltd.">
+  <defs>
+    <linearGradient id="ps-mark" x1="8" y1="4" x2="58" y2="60" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8B5CF6"/>
+      <stop offset="1" stop-color="#4C1D95"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#ps-mark)"/>
+  <path fill="#F8FAFC" d="M32.2 10.5c.7 1.8 1.8 4.1 3.2 6.7 3.4 6.3 8.4 13.6 8.4 20.2a11.8 11.8 0 1 1-23.6 0c0-6.6 5-13.9 8.4-20.2 1.4-2.6 2.5-4.9 3.2-6.7.2-.6 1.2-.6 1.4 0z"/>
+  <circle cx="27.8" cy="35.2" r="4.2" fill="#C4B5FD"/>
+</svg>
