@@ -211,8 +211,9 @@ p { margin: 0 0 1rem; }
 }
 
 .logo img {
-  width: 40px;
-  height: 40px;
+  width: auto;
+  height: 48px;
+  object-fit: contain;
 }
 
 .logo-text {
@@ -539,20 +540,6 @@ p { margin: 0 0 1rem; }
   margin: 0;
 }
 
-.iso-banner {
-  margin-top: 1.5rem;
-  padding: 1.2rem 1.4rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  border-radius: var(--radius);
-  background: linear-gradient(90deg, var(--primary-dark), var(--accent));
-  color: var(--white);
-}
-
-.iso-banner strong { font-family: var(--font-display); }
-
 /* Testimonials */
 .testimonial-wrap {
   position: relative;
@@ -768,6 +755,14 @@ textarea {
 
 textarea { min-height: 140px; resize: vertical; }
 
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .form-status {
   display: none;
   padding: 0.8rem 1rem;
@@ -881,8 +876,6 @@ textarea { min-height: 140px; resize: vertical; }
     margin: 0.6rem 0 0;
     width: 100%;
   }
-
-  .iso-banner { flex-direction: column; align-items: flex-start; }
 }
 
 @media (max-width: 680px) {

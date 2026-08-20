@@ -51,24 +51,24 @@
       event.preventDefault();
       var status = form.querySelector(".form-status");
       var action = form.getAttribute("action") || "";
-      if (action.indexOf("xxxx") !== -1 || action.indexOf("FORM_ID") !== -1) {
-        if (status) {
-          status.textContent =
-            "Thanks — this sample form is ready for Formspree. Add your form ID to start receiving messages.";
-          status.classList.add("is-visible");
-          status.classList.remove("is-error");
-        }
-        form.reset();
-        return;
-      }
+      var submit = form.querySelector('button[type="submit"]');
+      if (submit) submit.disabled = true;
       fetch(action, {
         method: "POST",
         body: new FormData(form),
         headers: { Accept: "application/json" }
       })
         .then(function (response) {
+          return response.json().then(function (data) {
+            return { ok: response.ok, data: data || {} };
+          }, function () {
+            return { ok: response.ok, data: {} };
+          });
+        })
+        .then(function (result) {
           if (!status) return;
-          if (response.ok) {
+          var success = result.data.success === true || result.data.success === "true";
+          if (result.ok && success) {
             status.textContent = "Thank you. We will be in touch shortly.";
             status.classList.add("is-visible");
             status.classList.remove("is-error");
@@ -79,8 +79,11 @@
         })
         .catch(function () {
           if (!status) return;
-          status.textContent = "Something went wrong. Please email hello@purplesplash.example instead.";
+          status.textContent = "Something went wrong. Please email admin@purplesplash.in instead.";
           status.classList.add("is-visible", "is-error");
+        })
+        .then(function () {
+          if (submit) submit.disabled = false;
         });
     });
   }
